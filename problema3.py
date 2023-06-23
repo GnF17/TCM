@@ -2,25 +2,28 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 N = 20 #numero de intervalos
-kfinal = 50 #passos no tempo
+kfinal = 1000 #passos no tempo
 L = 2 #tamanho da barra
 x = np.linspace(0.0, L, N+1) #Vetor x, usado para plotar
 deltax = L/N
 deltat = 0.2*deltax*deltax
 Temp = []
 
-for i in range(1,int(N-1)):
-    Temp.add(np.sin((np.pi/2)*deltax))
+Temp.append(0.0)
 
-#Temp = np.ones(N+1, float)
-Temp[0] = 0.0
-Temp[-1] = 0.0
+for i in range(int(N-1)):
+    Temp.append(np.sin((np.pi/2)*deltax))
+
+Temp.append(0.0)
 Tempnova = np.copy(Temp)
 
 for k in range (1, kfinal+1):
-    for i in range (1, N) :
+    for i in range (1, int(N-1)) :
         Tempnova[i] = Temp[i]+(deltat/(deltax*deltax))*(Temp[i+1]-2.0*Temp[i]+Temp[i-1])
     Temp = np.copy(Tempnova)
+
+print(len(Temp))
+print(len(x)) 
 
 t = k*deltat #Tempo atual, usado no titulo do grafico
 fig = plt.figure( )
