@@ -3,11 +3,16 @@ import matplotlib.pyplot as plt
 
 N = 20 #numero de intervalos
 kfinal = 50 #passos no tempo
-L = 1 #tamanho da barra
+L = 2 #tamanho da barra
 x = np.linspace(0.0, L, N+1) #Vetor x, usado para plotar
 deltax = L/N
 deltat = 0.2*deltax*deltax
-Temp = np.ones(N+1, float)
+Temp = []
+
+for i in range(1,int(N-1)):
+    Temp.add(np.sin((np.pi/2)*deltax))
+
+#Temp = np.ones(N+1, float)
 Temp[0] = 0.0
 Temp[-1] = 0.0
 Tempnova = np.copy(Temp)

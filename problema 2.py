@@ -7,8 +7,8 @@ L = 1 #tamanho da barra
 x = np.linspace(0.0, L, N+1) #Vetor x, usado para plotar
 deltax = L/N
 deltat = 0.2*deltax*deltax
-Temp = np.ones(N+1, float)
-Temp[0] = 0.0
+Temp = np.zeros(N+1, float)
+Temp[0] = 1.0
 Temp[-1] = 0.0
 Tempnova = np.copy(Temp)
 
